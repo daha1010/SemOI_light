@@ -7,7 +7,7 @@ class SemanticHandler():
     def __init__(self):
 
         # self.onto = get_ontology('http://192.168.178.55/augmentionOntology.owl').load()
-        self.onto = get_ontology('http://192.168.178.195/augmentionOntology.owl').load()
+        self.onto = get_ontology('augmentionOntology.owl').load(). # loads ontology
         #self.onto = get_ontology('http://192.168.178.55/augmentionOntology.owl').load() #je nachdem welche IP
 
 

@@ -5,6 +5,8 @@ from semanticCaller import callSemantic
 
 # from runDetection import aiy_detect
 
+# runs detection
+
 
 def html_list(ls):
     return "<br>".join(ls)
@@ -38,7 +40,7 @@ def run_semantic(classification_results):
 
     image_dimension_tuple = namedtuple("ImageDimensions", ["width", "height", "size"])
     dimension = image_dimension_tuple(670, 504, 670 * 504)
-    image_width = float(dimension.width)  # optimizing the image for classification
+    image_width = float(dimension.width)  # calculates position
     image_height = float(dimension.height)
     float_size = float(dimension.size)
 

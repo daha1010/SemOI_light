@@ -5,7 +5,7 @@ from semanticCaller import callSemantic
 
 # from runDetection import aiy_detect
 
-# runs detection
+# modifies the classification results to match the semantic api
 
 
 def html_list(ls):
@@ -13,7 +13,7 @@ def html_list(ls):
 
 
 def seperate_objects(raw_file):
-    result = []
+    result = []  # stores modified data
     element = raw_file[0]
     number_of_detected_elements = element.count(',') + 1
     split = element.rsplit(",")

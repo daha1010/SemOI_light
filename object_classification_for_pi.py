@@ -20,7 +20,7 @@ def seperate_objects(raw_file):
         if entity[0] == ' ':
             entity = entity[1:]
         entity = entity.capitalize()
-        if '/' in entity: # entfernt die doppelte Klassifikation
+        if '/' in entity: # removes redundant classification results
             entity_split = entity.rsplit("/")
             entity = entity_split[0]
         score = float(item[item.find('(') + 1:item.find(')')])
@@ -33,12 +33,12 @@ def seperate_objects(raw_file):
 def run_semantic(classification_results):
 
     ls_result = seperate_objects(classification_results)
-    ls_spliced = []  # liste für endformat
+    ls_spliced = []  # stores converted format
     #print(str(ls_result))
 
     image_dimension_tuple = namedtuple("ImageDimensions", ["width", "height", "size"])
     dimension = image_dimension_tuple(670, 504, 670 * 504)
-    image_width = float(dimension.width)  # image dimensions von vision kit bekommen 670x504
+    image_width = float(dimension.width)  # optimizing the image for classification
     image_height = float(dimension.height)
     float_size = float(dimension.size)
 
@@ -58,11 +58,11 @@ def run_semantic(classification_results):
 
         test = ids.kv.get(entity)
         if ids.kv.get(entity) is None:
-            ls_spliced.append((entity, conf_score, position, importance, 'not_found')) # keine ids zu Klassifizerung gefunden
+            ls_spliced.append((entity, conf_score, position, importance, 'not_found')) # if no matching ids were found
         else:
             ls_spliced.append((entity, conf_score, position, importance, ids.kv.get(entity)))
 
-        #print(str(ls_spliced))  # vergleichbr mit der rückgabe von run objet detection in semoi
+        #print(str(ls_spliced)) 
 
     # Get Scenes from the SemanticAPI
     semantic = callSemantic()

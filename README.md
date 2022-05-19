@@ -1,10 +1,10 @@
-# SemOI_light combines image classification with a semantic component. It was developed for the google vision kit. With semoi there is already an existing image recognition software with a semantic component provided by the university of rostock (https://github.com/Uni-Rostock-Win/SemOI/tree/master/WebApp). This software was used as inspiration and optimized for the needs of the google vision kit.
+# SemOI_light is a software prototype. It combines image classification with a semantic component. It was developed for the google vision kit. With SemOI there is already an existing image recognition software with a semantic component provided by the university of rostock (https://github.com/Uni-Rostock-Win/SemOI/tree/master/WebApp). This software was the archetype for SemOI light which is a different version of SemOI optimized for the needs of the Google Vision Kit.
 
-To run semoi light you need a google vision kit with the pre-installed classification model and the standard apis.
+To run SemOI light you need a Google Vision Kit with the pre-installed classification model and the standard apis.
 
 runsemoi() initiates the analysis and controlls button and camera to perform an image recognition.
 
-The file "overview_semoilight.pdf" explains the functions of the different components of semoi light with a brief description. 
+The file "overview_semoilight.pdf" explains the functions of the different components of SemOI light with a brief description. 
 https://github.com/daha1010/SemOI_light/blob/e28ffd4adc525b032c66d2b4641170e8cff1be7b/overview_semoilight.pdf
 
 For more detailled information check out the thesis which contains a prof of concept.

@@ -50,17 +50,17 @@ def crop_center(image):
 
 
 with picamera.PiCamera() as camera:
-    camera.resolution = (3280, 2464)
+    camera.resolution = (3280, 2464) # initializing camera and button
     button = Button(23)
     with Leds() as leds:
         while True:
             with ImageInference(image_classification.model()) as inference:
                 #button = Button(23)
-                leds.update(Leds.rgb_on(Color.GREEN))
+                leds.update(Leds.rgb_on(Color.GREEN)) # system is ready
                 print("press button to analyze")
                 button.wait_for_press()
                 camera.capture("class_pic.jpg")
-                leds.update(Leds.rgb_on(Color.YELLOW))
+                leds.update(Leds.rgb_on(Color.YELLOW))  # in progress
                 image = Image.open("class_pic.jpg")
                 image_center, offset = crop_center(image)
 
@@ -69,13 +69,13 @@ with picamera.PiCamera() as camera:
                 print("inference is running")
                 #button.wait_for_press()
                 #leds.update(Leds.rgb_on(Color.YELLOW))
-                detected_classes = []
+                detected_classes = [] # contains classification results
                 # print("Ergebnisse: " + str(result))
-                classes = image_classification.get_classes(result, top_k=5)
+                classes = image_classification.get_classes(result, top_k=5) # classifies top 5 classes
                 detected_classes.append(classes_info(classes))
                 print("Classification results: " + str(detected_classes))
                 # print(classes_info(classes))
-                semantic_augmentation = run_semantic(detected_classes)
+                semantic_augmentation = run_semantic(detected_classes) # runs semantic
                 print("Semantic augmentation: " + str(semantic_augmentation))
                 if classes:
                     camera.annotate_text = '%s (%.2f)' % classes[0]

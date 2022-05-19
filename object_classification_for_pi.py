@@ -26,7 +26,7 @@ def seperate_objects(raw_file):
             entity_split = entity.rsplit("/")
             entity = entity_split[0]
         score = float(item[item.find('(') + 1:item.find(')')])
-        result.append([entity, score, [521.0, 391.0, 20.0, 90.0]])
+        result.append([entity, score, [521.0, 391.0, 20.0, 90.0]]) # just a placeholder because this feature is not usable with the classification
 
     #print(str(result))
     return result

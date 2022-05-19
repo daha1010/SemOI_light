@@ -1,6 +1,7 @@
 import json
 class HandleDetectorIDs:
-    """Read the list of Object Identifiers and transfers it into a KV-List
+    """Reads the list of Object Identifiers and transfers it into a KV-List
+    used to add the detector IDs to the detected objects
 
     Returns:
         dict: "detectorName": "Id"

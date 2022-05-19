@@ -45,7 +45,7 @@ def crop_center(image):
     width, height = image.size
     size = min(width, height)
     x, y = (width - size) / 2, (height - size) / 2
-    return image.crop((x, y, x + size, y + size)), (x, y)
+    return image.crop((x, y, x + size, y + size)), (x, y) # ajusts image dimensions for classification 
 
 
 with picamera.PiCamera() as camera:
